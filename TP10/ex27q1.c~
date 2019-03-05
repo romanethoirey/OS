@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+  if(!fork()){
+    //fils qui cree un petit fils
+    sleep(10);
+    if(!fork()){
+      //petit fils qui cree un arriere petit fils
+      sleep(10);
+      if(!fork()){
+	//petit fils qui dort
+	sleep(10);
+      }
+    }
+  }
+
+  
+  return 0;
+}

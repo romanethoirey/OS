@@ -1,0 +1,227 @@
+Compte-rendu TP1
+
+------------------------------------------------------------------
+NOM  : Thoirey
+Prenom : Romane
+Numero carte d'étudiant : 3670031
+
+NOM :
+Prenom :
+Numero carte d'etudiant :
+------------------------------------------------------------------
+
+Arborescence de fichiers
+===================================
+
+Question 12
+-----------
+Pour chacun des cas suivants, copiez le resultat de l'execution de la commande et collez le dans le compte-rendu.
+Expliquez briévement les caractéristiques des éléments affichés
+
+1) Elements affiches par la commande "ls *"
+@	bd	cm   eae     fk		hg	jc  lb	n7  p5	  qqce	       s5  u3	vg  xf	zd
+a1	bf	cn   eai     fl		hg.txt	jd  lc	nb  p7	  qqci	       s7  u5	vh  xg	zea
+a3	bg	coa  eao     fm		hh	jf  ld	nc  pb	  qqco	       sb  u7	vj  xh	zee
+a5	bh	coe  eau     fn		hj	jg  lf	nd  pc	  qqcu	       sc  ub	vk  xj	zei
+a7	bj	coi  eay     fois	hk	jh  lg	nf  pd	  qqcy	       sd  uc	vl  xk	zeo
+ab	bk	coo  eb      g1		hl	jj  lh	ng  pf	  questionTP1  sf  ud	vm  xl	zeu
+aba	bl	cou  ec      g3		hm	jk  lj	nh  pg	  r1	       sg  uf	vn  xm	zey
+abe	bm	coy  ed      g5		hn	jl  lk	nj  ph	  r3	       sh  ug	w1  xn	zf
+abi	bn	d1   ef      g7		i1	jm  ll	nk  pj	  r5	       sj  uh	w3  y1	zg
+abo	c1	d3   eg      gb		i3	jn  lm	nl  pk	  r7	       sk  uj	w5  y3	zh
+ab.txt	c3	d5   eh      gc		i5	k1  ln	nm  pl	  rb	       sl  uk	w7  y5	zj
+abu	c5	d7   ej      gd		i7	k3  m1	nn  pm	  rc	       sm  ul	wb  y7	zk
+aby	c7	db   ek      gf		ib	k5  m3	o1  pn	  rd	       sn  um	wc  yb	zl
+ac	cb	dc   el      gg		ic	k7  m5	o3  q1	  rf	       t1  un	wd  yc	zm
+ad	cc	dd   em      gh		id	kb  m7	o5  q3	  rg	       t3  une	wf  yd	zn
+af	cd	de   en      Gilgamesh	if	kc  mb	o7  q5	  rh	       t5  v1	wg  yf
+ag	cda	df   Epopee  gj		ig	kd  mc	ob  q7	  riena        t7  v3	wh  yg
+ah	cde	dg   etait   gk		ih	kf  md	oc  qb	  riene        tb  v5	wj  yh
+aj	cdi	dh   f1      gl		ij	kg  mf	od  qc	  rieni        tc  v7	wk  yj
+ak	cdo	dj   f3      gm		ik	kh  mg	of  qd	  rieno        td  vaa	wl  yk
+al	cdu	dk   f5      gn		il	kj  mh	og  qf	  rienu        tf  vae	wm  yl
+am	cdy	dl   f7      h1		Il	kk  mj	oh  qg	  rieny        tg  vai	wn  ym
+an	ce.txt	dm   fb      h3		im	kl  mk	oj  qh	  rj	       th  vao	x1  yn
+b1	cf	dn   fc      h5		in	km  ml	ok  qj	  rk	       tj  vau	x3  z1
+b3	cg	e1   fd      h7		j1	kn  mm	ol  qk	  rl	       tk  vay	x5  z3
+b5	ch	e3   ff      hb		j3	l1  mn	om  ql	  rm	       tl  vb	x7  z5
+b7	cj	e5   fg      hc		j5	l3  n1	on  qm	  rn	       tm  vc	xb  z7
+bb	ck	e7   fh      hd		j7	l5  n3	p1  qn	  s1	       tn  vd	xc  zb
+bc	cl	eaa  fj      hf		jb	l7  n5	p3  qqca  s3	       u1  vf	xd  zc
+
+il affiche tout les caracteres  du fichier
+
+2) Elements affiches par la commande "ls ?"
+?
+
+affiche qu'un seul caractere
+
+3) Elements affiches par la commande "ls [a-c]?"
+a1  a5	ab  ad	ag  aj	al  an	b3  b7	bc  bf	bh  bk	bm  c1	c5  cb	cd  cg	cj  cl	cn
+a3  a7	ac  af	ah  ak	am  b1	b5  bb	bd  bg	bj  bl	bn  c3	c7  cc	cf  ch	ck  cm
+
+affiche tout les caracteres qui contiennent les lettres comprises entre a et c 
+
+4) Elements affiches par la commande "ls [ac]?"
+a1  a5	ab  ad	ag  aj	al  an	c3  c7	cc  cf	ch  ck	cm
+a3  a7	ac  af	ah  ak	am  c1	c5  cb	cd  cg	cj  cl	cn
+
+affiche les caracteres qui conetiennnent a ou c
+
+5) Elements affiches par la commande "ls [a-c]*"
+a1  a7	 abe  ab.txt  ac  ag  ak  an  b5  bc  bg  bk  bn  c5  cc   cde	cdu	cf  cj	cm   coe  cou
+a3  ab	 abi  abu     ad  ah  al  b1  b7  bd  bh  bl  c1  c7  cd   cdi	cdy	cg  ck	cn   coi  coy
+a5  aba  abo  aby     af  aj  am  b3  bb  bf  bj  bm  c3  cb  cda  cdo	ce.txt	ch  cl	coa  coo
+
+affiche nimporte quelle liste de caracteres qui contient une lettre entre a et c
+
+6) Elements affiches par la commande "ls *.txt"
+ab.txt	ce.txt	hg.txt
+
+affiche tout les caracteres qui contiennet un .txt
+
+Question 13
+-----------
+Pour chacun des fichiers a identifier donnez
+- la commande permettant de l'identifier,
+- son nom,
+- son contenu.
+
+ls *pop*
+ls [aeiouy]?
+ls [aih]*
+
+Le texte litteraire recherche a pour nom l'"Epopee de Gilgamesh" (c'est le recit d'un deluge, la bible s'en est inspiree).
+  
+Gilgamesh, roi d'Ourouk (Sumerienne 1ere dynastie), "pour deux tiers il est dieu, pour un tiers il est homme", a la fois sage et tyran. Ses concitoyens se plaignirent au dieu Anou : "nuit et jour regne sa violence", qui leur envoya Enkidou, mi-homme, mi-bete, pour les defendre. Mais, Gilgamesh envoie a cet homme sauvage une courtisane, qui le seduira. Une bagarre entre ces deux hommes sera suivie d'une grand amitie. Ils parcourent le monde, tuent le monstre Houmbaba. Ishtar, deesse de l'amour et de la guerre tombe amoureuse de Gilgamesh, qui l'econduit. Pour se venger, elle lui envoie le taureau Celeste, mais il le tue. Les dieux se vengent sur Enkidou. De peur de mourir egalement, Gilgamesh part a la recherche de l'immortalite.  Il rencontre Outa-Napishtim ("celui qui a recu l'immortalite"), qui lui annonce le deluge : "les dieux ont decide d'inonder l'humanite...". La deesse Ea lui precise alors : "Homme de Shourouppak, fils d'Oubara-toutou, demolis ta maison, construis un bateau. Laisse les possessions, recherche les choses vivantes. Abandonne les biens et sauve les vies ! Prends dans le bateau les semences de toutes les choses vivantes." Outa-Napishtim donne la plante d'immortalite a Gilgamesh, mais celle-ci lui sera derobeepar un serpent. L'humanite a perdu l'immortalite.  Gilgamesh, de retour a Ourouk, grave sur une tablette de pierre le recit de son voyage et acheve de construire sa ville.
+
+
+Regroupement de commandes dans un script
+========================================
+
+Questions 1 et 2
+----------------
+Inserez le code source de votre script (i.e., recopiez le contenu du fichier creation.sh)
+mkdir RepTest
+cd RepTest
+mkdir -p Rep1/Repa_1 Rep1/Repa_2 Rep1/Repa_2/Repb Rep1/Repa_2/Repc Rep1/Repa_2/Repd
+mkdir -p Rep2/a Rep2/aa Rep2/aaa Rep2/ab Rep2/aba Rep2/abc Rep2/ac Rep2/bac Rep2/c 
+
+RepTest/:
+Rep1  Rep2
+
+RepTest/Rep1:
+Repa_1	Repa_2
+
+RepTest/Rep1/Repa_1:
+
+RepTest/Rep1/Repa_2:
+Repb  Repc  Repd
+
+RepTest/Rep1/Repa_2/Repb:
+
+RepTest/Rep1/Repa_2/Repc:
+
+RepTest/Rep1/Repa_2/Repd:
+
+RepTest/Rep2:
+a  aa  aaa  ab	aba  abc  ac  bac  c
+
+RepTest/Rep2/a:
+
+RepTest/Rep2/aa:
+
+RepTest/Rep2/aaa:
+
+RepTest/Rep2/ab:
+
+RepTest/Rep2/aba:
+
+RepTest/Rep2/abc:
+
+RepTest/Rep2/ac:
+
+RepTest/Rep2/bac:
+
+RepTest/Rep2/c:
+
+
+Question 3
+----------
+effet de la commande 1 : renomme repb par repe
+
+effet de la commande 2 : met le repertoire repe dans repc
+
+effet de la commande 3 : pareil pour repd
+
+Question 4
+----------
+Commandes utilisees :  mv Repa_2 ../Rep2/Rep2.1
+
+
+Question 5
+----------
+Commandes utilisees et resultats : ls *Rep*
+Rep1:
+Repa_1
+
+Rep2:
+a  aa  aaa  ab	aba  abc  ac  bac  c  Rep2.1
+
+
+Constatations :
+
+Question 6
+----------
+Commandes utilisees : cd Rep2
+
+
+Question 7
+----------
+Commandes utilisees : pwd 
+
+
+Question 8
+----------
+Commande utilisee et resultats pour 
+
+- nom se terminant par a : ls *[a]
+a:
+
+aa:
+
+aaa:
+
+aba:
+
+
+
+- nom commencant par b : ls [b]*
+rien 
+
+- nom compose de 2 caracteres exactement : ls ??
+aa:
+
+ab:
+
+ac:
+
+
+- nom contenant le caractere a en deuxieme position : ls ?a
+rien 
+
+Question 9
+----------
+
+
+Utilisation de la commande man
+==============================
+
+Question 1
+----------
+Option de mkdir : mkdir -p ...
+
+Question 2
+----------
+Option de ls : ls -lt
+

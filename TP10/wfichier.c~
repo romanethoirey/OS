@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+
+  if(argc!=2){
+    printf("il faut 2 arguments un nom de fichier et une valeur entiere");
+    return 0;
+  }
+
+  char *file=argv[1];
+  char *val=argv[2];
+
+  FILE* f=fopen("file","r+");
+  fprintf(f,val);
+
+  return 0;
+}

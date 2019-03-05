@@ -1,0 +1,63 @@
+Compte-rendu TP8
+
+------------------------------------------------------------------
+NOM  :
+Prenom :
+Numero carte d'etudiant :
+
+NOM :
+Prenom :
+Numero carte d'etudiant :
+------------------------------------------------------------------
+
+
+Synchronisations multiples
+==========================
+
+Question 1
+----------
+script saisie.sh
+
+
+Question 2
+----------
+script somme.sh
+
+
+Question 3
+----------
+script moy.sh
+
+
+Question 4
+----------
+Explications :
+
+Question 5
+----------
+Nouvelle version des scripts
+
+Question 6
+----------
+Nouvelle modification si necessaire
+
+Synchronisations croisees et alternance d'executions
+====================================================
+
+Question 1
+----------
+script ecrivain.sh
+
+
+Question 2
+----------
+script lecteur.sh
+
+
+Question 3
+----------
+Constatations
+
+Question 4
+----------
+Nouvelle version des scripts lecteur.sh et ecrivain.sh 

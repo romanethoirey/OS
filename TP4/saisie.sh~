@@ -1,0 +1,9 @@
+#! /bin/bash
+#saisie.sh
+
+read v1 v2 v3
+
+while[ v1 -le 1 ] && [ v1 -ge 31 ]
+do
+    read v1
+done

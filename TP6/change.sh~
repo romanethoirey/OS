@@ -1,0 +1,6 @@
+#!/bin/bash
+#change.sh
+
+
+echo $PPID
+trap "echo 1;"

@@ -1,0 +1,106 @@
+Compte-rendu TP6 (controle de TP)
+
+------------------------------------------------------------------
+NOM  : THOIREY	
+Prenom : Romane
+Numero carte d'etudiant : 3670031
+------------------------------------------------------------------
+
+Exercice 1
+==========
+
+Inserez le source du script saisie.sh
+
+#! /bin/bash
+# saisie.sh
+
+export n
+n=-1
+while [ "$n" -lt 0 ] || [ "$n" -gt 10 ]
+do
+  echo "Saisissez une valeur entre 0 et 10"
+  read n
+done
+
+if [ "$n" -lt 5 ]
+then
+  ./script.sh
+else
+  ./script.sh
+fi
+
+
+
+Expliquez votre solution
+le export permet au script.sh d'avoir acces à la valeur de n dans son script 
+
+
+Exercice 2
+==========
+
+Inserez le source des scripts test_saisie.sh et saisie_val.sh
+#!/bin/bash
+#test_saisie.sh
+
+./saisie_val.sh
+v1=$?
+
+res=0
+
+i=0
+while [ $i -ne $v1 ]
+do
+    ./saisie_val.sh
+    v2=$?
+    res=$(($res+$v2))
+    i=$(($i+1))
+done
+echo $res
+
+#! /bin/bash
+# saisie_val.sh
+
+n=-1
+while [ $n -lt 0 ]
+do
+  echo "Saisissez une valeur positive"
+  read n
+done
+
+exit $n
+
+
+Expliquez votre solution
+On execute saisie_val qui envoie une valeur de sortie, on le recupere grace a $? grace au exit mis la fin de saisie_val.sh. Puis on fait une boucle qui execute et recupere la valeur de retour de saisie_val jusqu'a avoir la bonne valeur.
+
+
+Exercice 3
+==========
+
+Inserez le source des scripts lecture1.sh et lecture2.sh
+
+Justifiez votre solution
+Dans lecture1.sh, on ne doit rien ajouter, read va lire de l'entree standard (stdin) du terminal.
+Par contre dans lecture2.sh pour lire sans reouvrir le fichier dans la boucle on doit rediriger la lecture de read vers le fichier fic, et on le met apres le done qui marque la fin de la boucle.
+
+
+Exercice 4
+==========
+
+Repondez aux questions de votre sujet, inserez le source des scripts demandes
+
+1. SIGINT correspond au signal 2
+
+2.#!/bin/bash
+#change.sh
+
+
+echo $$
+trap "echo 1; trap ""; trap "echo 2;exit 1" SINGINT" SIGINT
+while true
+do
+    sleep 1
+done
+
+
+

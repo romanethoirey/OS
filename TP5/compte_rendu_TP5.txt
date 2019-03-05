@@ -1,0 +1,137 @@
+Compte-rendu TP5
+
+------------------------------------------------------------------
+NOM  : THOIREY
+Prenom : Romane
+Numero carte d'etudiant : 3670031
+
+NOM :
+Prenom :
+Numero carte d'etudiant :
+------------------------------------------------------------------
+
+Constatation des commutations
+=============================
+
+Question 1
+----------
+Affichage :
+./affiche.sh 5
+5669 : 0
+5669 : 1
+5669 : 2
+5669 : 3
+5669 : 4
+
+Question 2
+----------
+Donnez plusieurs affichages. Conclusions ? 
+au debut le systeme accorde l'acces au 2 processus de maniere alterné et au fur et à mesure le temps donné à un processus varie
+
+
+Question 3
+----------
+Conclusions ?
+On sait que le systeme d'exploitation accorde au processus le processus pendant des intervalles de temps
+
+Mise en evidence des incoherences provoquees par les commutations
+=================================================================
+
+Question 1
+----------
+Explications
+On teste si le fichier existe deja si il n'existe pas on cree un nouveau fichier sinon on rajoute à la fin du fichier le numero du pid et suivant
+
+Question 2
+----------
+Explications
+il n'est pas satisfaisant car il n'y a pas le meme contenu dans f1,f2,f3 concernant premier et suivant car comme les processus s'execute en meme temps 
+
+Question 3
+----------
+Inserez le code source de la nouvelle version du script ecriture.sh
+#! /bin/bash
+# ecriture.sh
+
+if [ $# -lt 1 ]
+then
+  echo "Il faut au moins un parametre"
+  exit 1
+fi
+
+for elem in "$@"
+do
+    if [ ! -e "$elem" ]
+    then
+	sleep 5
+	echo premier $$ > "$elem"
+    else
+	echo suivant $$ >> "$elem"
+  fi
+done
+
+Inserez les executions
+./lancement_ecriture.sh 
+cat f1 f2 f3
+premier 6281
+premier 6281
+premier 6281
+
+
+Question 4
+----------
+Inserez le code source de la nouvelle version du script ecriture.sh
+#! /bin/bash
+# ecriture.sh
+
+echo $$ >> fic_id
+
+if [ $# -lt 1 ]
+then
+    echo "Il faut au moins un parametre"
+    exit 1
+fi
+
+for elem in "$@"
+do
+    while read i 
+    do
+	if [ $i -ne $$ ]
+	then
+	   kill -19 $i 2> /dev/null
+	fi
+    done < fic_id
+    
+    if [ ! -e "$elem" ]
+    then
+	sleep 5
+	echo premier $$ > "$elem"
+    else
+	echo suivant $$ >> "$elem"
+    fi
+    
+    while read i 
+    do
+	if [ $i -ne $$ ]
+	then
+	   kill -18 $i 2> /dev/null
+	fi
+    done < fic_id
+done
+
+Inserez les executions
+./lancement_ecriture.sh 
+cat f1 f2 f3
+premier 4342
+suivant 4341
+premier 4342
+suivant 4341
+premier 4342
+suivant 4341
+
+
+Question 5
+----------
+DŽfauts de la solution proposee
+
+SIGCONT nous renvoie des erreurs de processus fini ou inexistant sinon il est ok

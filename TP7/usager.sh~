@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+echo "Arrivee de l'usager $$"
+./prise_cabine.sh /tmp/3670031/nb_cabines
+./prise_panier.sh /tmp/3670031/nb_paniers
+
+./liberation_cabines /tmp/3670031/nb_cabines
+
+echo "Usager $$ se baigne"
+sleep 3
+
+./prise_cabine.sh /tmp/3670031/nb_cabines
+./liberation_paniers /tmp/3670031/nb_paniers
+
+./liberation_cabines

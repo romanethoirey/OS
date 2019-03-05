@@ -1,0 +1,27 @@
+#! /bin/bash
+# ecriture.sh
+
+echo $$ >> fic_id
+
+if [ $# -lt 1 ]
+then
+    echo "Il faut au moins un parametre"
+    exit 1
+fi
+
+for elem in "$@"
+do
+    if [ ! -e "$elem" ]
+    then
+	if [ $(cat fic_id | wc -l) -gt 1 ]
+	then
+	    echo premier $$ > "$elem"
+	else
+	    $(kill -s SIGSTOP $$)
+	fi
+	PID=$(tail fic_id)
+	$(kill -s SIGCONT $PID)
+    else
+	echo suivant $$ >> "$elem"
+    fi
+done

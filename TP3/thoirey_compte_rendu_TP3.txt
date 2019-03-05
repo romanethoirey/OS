@@ -1,0 +1,128 @@
+Compte-rendu TP3
+
+------------------------------------------------------------------
+NOM  : THOIREY	
+Prenom : Romane	
+Numero carte d'etudiant : 3670031
+
+NOM :
+Prenom :
+Numero carte d'etudiant :
+------------------------------------------------------------------
+
+
+Passage de parametres et exportation de variables
+=================================================
+
+Question 1
+----------
+Inserez le code source du script pere_para.sh
+
+Inserez le code source du script fils_para.sh
+
+Inserez les executions
+
+Question 2
+----------
+Inserez le code source du script pere.sh
+
+Inserez le code source du script fils.sh
+
+Inserez les executions
+
+Hierarchie de processus shell
+=============================
+
+Question 1
+----------
+A = 30
+PID = 7693
+
+Question 2
+----------
+A = " " 
+PID = 8824
+PPID = 7693
+
+Question 3
+----------
+A = 30 
+PID = 7693
+
+Question 4
+----------
+Execution :
+export A
+bash 
+echo $A
+30
+
+Question 5
+----------
+Execution : 
+A=20
+exit 
+echo $A
+30
+
+Explications : il ne s'agit que d'une copie de la valeur A dans le 2e terminal et donc ne chamge pas la premiere valeur de A
+
+Question 6
+----------
+Constatations : A n'existe pas
+
+Question 7
+----------
+Constatations : le nouveau terminal affiche 30
+
+Explications : la commande export donne une copie de la variable dans toute l'arborescence 
+
+Question 8
+----------
+Constatations : La valeur de A n'a pas change
+
+Explications : export donne une copie de A mais pas ‡ la variable elle meme 
+
+Question 9
+----------
+Constatations : A n'a pas change 
+
+Explications : une fois le processus export lance il garde en memoire la valeur de A lance ‡ ce moment et ne regarde pas la valeur dans le terminal pere 
+
+Question 10
+----------
+Constatations : A=20
+
+Explicatios : dans le nouveau terminal il prend la valeur du terminal pere qui l'a ouvert mais pas du racine
+
+Question 11
+----------
+Constatations :
+A est vide 
+Deductions :
+Le nouveau terminal ne fais pas partie de l'arborescence du premier terminal. Donc il ne connais pas A
+
+Redirection des entrees-sorties
+===============================
+
+Question 1
+----------
+Inserez le code source du script ensemble_calculs.sh
+
+Inserez les exécutions
+
+Question 2
+----------
+Inserez le code source du script ensemble_calculs1.sh
+
+Inserez les executions
+
+Inserez le code source du script ensemble_calculs2.sh
+
+Inserez les executions
+
+Question 3
+----------
+Inserez le code des nouveaux scripts
+
+Inserez les executions

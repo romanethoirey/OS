@@ -1,0 +1,22 @@
+#! /bin/bash
+#pere.sh
+
+if [ $# -ne 1 ]
+then
+    echo Il faut un seul parametre
+    exit 2
+else
+    
+    val=$(./alea.sh)
+   
+    i=0
+    for i in $val
+    do
+	val2=$(./alea.sh)
+	echo Je suis le fils $i et je dois creer
+	./petit_fils.sh "$val.$i"
+    done
+    
+
+fi
+    

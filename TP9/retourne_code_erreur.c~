@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  if(argc!=3){"Message d'erreur: il faut 2 parametre"; return 1;}
+
+  affiche_para.c
+  
+  return 0;
+}

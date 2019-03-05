@@ -1,0 +1,275 @@
+Compte-rendu TP9
+
+------------------------------------------------------------------
+NOM  : thoirey
+Prenom : romane
+Numero carte d'etudiant : 3670031
+
+NOM :
+Prenom :
+Numero carte d'etudiant :
+------------------------------------------------------------------
+
+* Exercice 1 *
+Question 1
+----------
+affiche_para.c
+===============
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+  printf("nom: %s \nnb argument: %d \n",argv[0],argc-1);
+  int i;
+  printf("Liste des arguments:\n");
+  for(i=1;i<argc;i++){
+    printf("%s\n",argv[i]);
+  }
+
+  return 0;
+}
+
+sortie de ./affiche_para
+========================
+./affiche_para 2 l
+nom: ./affiche_para 
+nb argument: 2 
+Liste des arguments:
+2
+l
+
+
+Question 2
+----------
+add.c
+=====
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  if(argc<3){printf("Il faut 2 parametres\n"); return 0;}
+
+  if((isdigit(argv[1][0])!=0) && (isdigit(argv[2][0])!=0)){
+    
+    int v1=atoi(argv[1]);
+    int v2=atoi(argv[2]);
+    
+    printf("%d + %d = %d\n",v1,v2,v1+v2);
+    
+  }
+  else {printf("l'un des 2 arguments n'est pas un chiffre\n"); return 0;}
+  
+  
+  return 0;
+}
+
+sortie de ./add
+===============
+./add 5 7
+5 + 7 = 12
+
+Question 3
+----------
+affiche_env.c
+=============
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  char* PATH=getenv("PATH");
+  printf("%s\n",PATH);
+  
+  return 0;
+}
+
+sortie de ./affiche_env
+=======================
+/Infos/bd/public/bin:/Infos/bd/client11/instantclient_11_2:/usr/local/pig-0.15.0/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/Infos/lmd/2017/licence/ue/2I010-2018fev/bin
+
+
+Question 4
+----------
+modif_env.c
+===========
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  setenv("TOTO","42",1);
+
+  char* toto=getenv("TOTO");
+  printf("%s\n",toto);
+  
+  return 0;
+}
+
+sortie de ./modif_env
+=====================
+./modif_env 
+42
+
+* Exercice 2 *
+Question 1
+----------
+source de votre programme
+=========================
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  setenv("TOTO","42",1);
+  system("echo $$: $TOTO");
+  
+  char* toto=getenv("TOTO");
+  printf("%s\n",toto);
+  
+  return 0;
+}
+Observations
+============
+
+echo affiche la valeur de la variable d'environnementTOTO 
+
+
+Question 2
+----------
+source de votre programme
+=========================
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  setenv("TOTO","42",1);
+
+  system("echo $$: $TOTO");
+  
+  system("xterm");
+
+  char* toto=getenv("TOTO");
+  printf("%s\n",toto);
+  
+  return 0;
+}
+
+Observations
+============
+quand on rajoute xterm il affiche 42 car il a copie TOTOet toute les var d'env
+
+* Exercice 3 *
+Question 1
+----------
+source de votre programme
+=========================
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  if(argc!=3){printf("Message d'erreur: il faut 2 parametre\n"); return 1;}
+
+  int i;
+  for(i=1;i<argc;i++){
+    printf("%s\n",argv[i]);
+  }
+  return 0;
+}
+
+source de votre script shell
+============================
+#!/bin/bash
+
+
+./retourne_code_erreur salut toto
+echo $?
+
+./retourne_code_erreur salut
+echo $?
+
+
+
+Observations
+============
+/retourne_code_erreur.sh 
+salut
+toto
+0
+Message d'erreur: il faut 2 parametre
+1
+
+Le programme affiche ce que retourne_erreur.c affiche
+
+Question 2
+----------
+source de votre programme
+=========================
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+  if(argc<3){printf("Il faut 2 parametres\n"); return 0;}
+
+  if((isdigit(argv[1][0])!=0) && (isdigit(argv[2][0])!=0)){
+    
+    int v1=atoi(argv[1]);
+    int v2=atoi(argv[2]);
+    
+    printf("%d\n",v1+v2);
+    
+  }
+  else {printf("l'un des 2 arguments n'est pas un chiffre\n"); return 0;}
+  
+  
+  return 0;
+}
+
+
+
+source de votre script shell
+==#!/bin/bash
+
+PAR=$1
+i=0
+
+while [ $i -le $1 ]
+do
+    echo $i
+    i=$(./add 1 $i)
+    
+
+done
+
+==========================
+
+Observations
+============
+./boucle.sh 5
+0
+1
+2
+3
+4
+5
+
+
+* Exercice 4 *
+Question 1
+----------
+source de votre programme
+=========================
+
+
+Sortie de votre programme
+=========================
+
+Observations
+============
+
+

@@ -1,0 +1,407 @@
+Compte-rendu TP4
+
+------------------------------------------------------------------
+NOM  : THOIREY	
+Prenom : ROMANE	
+Numero carte d'etudiant : 3670031
+
+NOM :
+Prenom :
+Numero carte d'etudiant :
+------------------------------------------------------------------
+
+
+Terminaison d'un processus
+==========================
+
+Question 1
+----------
+Comment arreter le processus ? C-z puis kill -9 PID  
+
+Question 2
+----------
+Constatations ? Il arrete le processus car sigkill ne peut pas etre intercepeté
+
+Question 3
+----------
+Inserez le code source du script boucleinfinie3.sh
+
+#! /bin/bash
+#boucleinfini3.sh
+
+echo Je suis le processus $$
+trap "echo $$ message affiché puis SIGKILL;exit 1" SIGINT
+
+
+i=0
+while [ true ]
+do
+echo $i
+i=‘expr $i + 1‘
+sleep 1
+done
+
+
+Inserez les executions
+
+./boucleinfinie3.sh 
+Je suis le processus 4640
+0
+1
+2
+3
+4
+5
+^C4640 message affiche puis SIGKILL
+
+
+Question 4
+----------
+Inserez le code source du script boucleinfinie4.sh
+
+#! /bin/bash
+#boucleinfinie4.sh
+
+echo Je suis le processus $$
+trap "echo $$ SIGINT recu;exit 1" SIGINT
+trap "echo $$ SIGQUIT recu;exit 1" SIGQUIT
+trap "echo $$ SIGTERM recu;exit 1" SIGTERM
+
+
+i=0
+while [ true ]
+do
+    echo $i
+    i=$(($i+1))
+    sleep 1
+done
+
+
+Inserez les executions
+
+./boucleinfinie4.sh 
+Je suis le processus 4780
+0
+1
+2
+3
+^C4780 SIGINT recu
+dans un autre terminal en meme temps kill -2 4780
+
+./boucleinfinie4.sh 
+Je suis le processus 4785
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+4785 SIGQUIT recu
+
+kill -3 4785
+
+./boucleinfinie4.sh 
+Je suis le processus 4805
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+4805 SIGTERM recu
+
+
+kill -15 4805
+
+
+
+Signaux
+=======
+
+Question 1
+----------
+Inserez le code source du script saisie.sh
+#! /bin/bash
+#saisie.sh
+
+echo donnez v1 entre 1 et 31
+read v1 
+
+while [ $v1 -le 1 ] || [ $v1 -ge 31 ]
+do
+    echo donnez v1 entre 1 et 31
+    read v1
+done
+
+echo donnez v2 entre 1 et 12
+read v2
+
+while [ $v2 -le 1 ] || [ $v2 -ge 12 ]
+do
+    echo retapez v2  entre 1 et 12
+    read v2
+done
+
+echo donnez v3 entre 1960 et 1980
+read v3
+
+while [ $v3 -le 1960 ] || [ $v3 -ge 1980 ]
+do
+    echo retapez v3 entre 1960 et 1980
+    read v3 
+done
+
+Inserez les executions
+ ./saisie.sh 
+donnez v1 entre 1 et 31
+5
+donnez v2 entre 1 et 12
+78
+retapez v2 entre 1 et 12
+78
+retapez v2 entre 1 et 12
+78
+retapez v2 entre 1 et 12
+12
+retapez v2 entre 1 et 12
+15
+retapez v2 entre 1 et 12
+14
+retapez v2 entre 1 et 12
+11
+donnez v3 entre 1960 et 1980
+1960
+retapez v3 entre 1960 et 1980
+1961
+
+Question 2
+----------
+Inserez le code source du script saisie1.sh
+#! /bin/bash
+#saisie.sh
+
+echo Processus $$
+trap " echo $$ ignore le signal SIGINT" SIGINT
+
+echo donnez v1 entre 1 et 31
+read v1 
+
+while [ $v1 -le 1 ] || [ $v1 -ge 31 ]
+do
+    echo donnez v1 entre 1 et 31
+    read v1
+done
+
+echo donnez v2 entre 1 et 12
+read v2
+
+while [ $v2 -le 1 ] || [ $v2 -ge 12 ]
+do
+    echo retapez v2  entre 1 et 12
+    read v2
+done
+
+echo donnez v3 entre 1960 et 1980
+read v3
+
+while [ $v3 -le 1960 ] || [ $v3 -ge 1980 ]
+do
+    echo retapez v3 entre 1960 et 1980
+    read v3 
+done
+Inserez les executions
+./saisie2.sh 
+Processus 5106
+donnez v1 entre 1 et 31
+^C5106 ignore le signal SIGINT
+^C5106 ignore le signal SIGINT
+^C5106 ignore le signal SIGINT
+^C5106 ignore le signal SIGINT
+^C5106 ignore le signal SIGINT
+^C5106 ignore le signal SIGINT
+2
+donnez v2 entre 1 et 12
+4
+donnez v3 entre 1960 et 1980
+1965
+
+
+Valeur de retour d'un processus
+===============================
+
+Question 1
+----------
+Inserez le code source du script petit_fils.sh
+
+#! /bin/bash
+#petit_fils.sh
+
+if [ $# -ne 1 ]
+then
+    echo Il faut un seul parametre
+    exit 2
+else
+    echo Je suis le processus $1
+fi
+
+Inserez les executions
+
+./petit_fils.sh 7
+Je suis le processus 7
+
+Question 2
+----------
+Inserez le code source du script fils.sh
+
+#! /bin/bash
+#fils.sh
+
+
+if [ $# -ne 1 ]
+then
+    echo Il faut un seul parametre
+    exit 2
+else
+    
+    val=$(./alea.sh)
+    echo Je suis le fils $1 et je dois creer $val processus
+    i=1
+    while [ $i -ne $val ]
+    do
+	./petit_fils.sh "$val.$i"
+	i=$(($i+1))
+    done
+    
+
+fi
+    
+
+
+Inserez les executions
+
+./fils.sh 3
+Je suis le fils 3 et je dois creer 4 processus
+Je suis le processus 4.1
+Je suis le processus 4.2
+Je suis le processus 4.3
+
+
+Question 3
+----------
+Inserez le code source du script pere.sh
+#! /bin/bash
+#pere.sh
+
+if [ $# -ne 1 ]
+then
+    echo Il faut un seul parametre
+    exit 2
+else
+    j=0
+    while [ $j -ne $1 ]
+    do
+
+
+	./fils.sh $j
+
+	j=$(($j+1))
+    done
+fi
+
+
+Inserez les executions
+
+./pere.sh 3
+Je suis le fils 0 et je dois creer 9 processus
+Je suis le processus 9.0
+Je suis le processus 9.1
+Je suis le processus 9.2
+Je suis le processus 9.3
+Je suis le processus 9.4
+Je suis le processus 9.5
+Je suis le processus 9.6
+Je suis le processus 9.7
+Je suis le processus 9.8
+Je suis le fils 1 et je dois creer 1 processus
+Je suis le processus 1.0
+Je suis le fils 2 et je dois creer 4 processus
+Je suis le processus 4.0
+Je suis le processus 4.1
+Je suis le processus 4.2
+Je suis le processus 4.3
+
+
+Question 4
+----------
+Inserez le code source des nouvelles versions des scripts
+#! /bin/bash
+#pere.sh
+
+if [ $# -ne 1 ]
+then
+    echo Il faut un seul parametre
+    exit 2
+else
+    cpt=1
+    j=0
+    while [ $j -ne $1 ]
+    do
+
+	./fils.sh $j
+	cpt=$(($cpt+$?))
+
+	j=$(($j+1))
+    done
+   
+    echo $cpt processus ont ete crees
+fi
+
+
+
+
+Inserez les executions
+./pere.sh 2
+Je suis le fils 0 et je dois creer 7 processus
+Je suis le processus 7.0
+Je suis le processus 7.1
+Je suis le processus 7.2
+Je suis le processus 7.3
+Je suis le processus 7.4
+Je suis le processus 7.5
+Je suis le processus 7.6
+Je suis le fils 1 et je dois creer 4 processus
+Je suis le processus 4.0
+Je suis le processus 4.1
+Je suis le processus 4.2
+Je suis le processus 4.3
+12 processus ont ete crees
+
+
+Valeur retournee et/ou valeur affichee ?
+========================================
+
+Question 1
+----------
+Inserez le code source du script test.sh et de la nouvelle version de repertoire.sh
+
+
+

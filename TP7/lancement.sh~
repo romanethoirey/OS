@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+echo "Piscine municipale"
+
+i=0
+while [ $i -ne 7 ]
+do
+    ./usager.sh &
+    wait
+    i=$(($i+1))
